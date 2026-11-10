@@ -1,5 +1,20 @@
+# Tema claro fijo, con letra grande: el público son personas mayores.
+# Atkinson Hyperlegible fue diseñada para personas con baja visión; Fraunces, para los títulos.
 [theme]
-primaryColor = "#1f5fbf"
+base = "light"
+primaryColor = "#0E5E6F"
+backgroundColor = "#F6F4EF"
+secondaryBackgroundColor = "#EDE8DE"
+textColor = "#14212B"
+linkColor = "#0E5E6F"
+borderColor = "#E3DDD1"
+font = "Atkinson Hyperlegible:https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap, sans-serif"
+headingFont = "Fraunces:https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap, serif"
+baseFontSize = 17
+baseRadius = "12px"
+
+[client]
+toolbarMode = "minimal"
 
 [server]
 maxUploadSize = 10
