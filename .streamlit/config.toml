@@ -1,0 +1,8 @@
+[theme]
+primaryColor = "#1f5fbf"
+
+[server]
+maxUploadSize = 10
+
+[browser]
+gatherUsageStats = false

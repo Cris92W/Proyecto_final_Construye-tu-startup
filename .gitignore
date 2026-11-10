@@ -1,0 +1,18 @@
+# Secretos: nunca subir
+.env
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+*.egg-info/
+
+# Capturas de mensajes reales sin tapar: se procesan en memoria y nunca se suben
+capturas_privadas/
+data/originales/
+
+# Sistema
+.DS_Store
+Thumbs.db

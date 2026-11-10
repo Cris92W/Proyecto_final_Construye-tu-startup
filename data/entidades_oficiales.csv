@@ -1,0 +1,29 @@
+entidad,tipo,dominios,palabras_clave
+BCP,banco,viabcp.com,bcp;viabcp;bancodecredito
+Interbank,banco,interbank.pe,interbank
+BBVA,banco,bbva.pe,bbva
+Scotiabank,banco,scotiabank.com.pe,scotiabank
+Banco de la Nación,banco,bn.com.pe,bancodelanacion;banconacion
+Mibanco,banco,mibanco.com.pe,mibanco
+BanBif,banco,banbif.com.pe,banbif
+Banco Pichincha,banco,pichincha.pe,pichincha
+Banco Falabella,banco,bancofalabella.pe,bancofalabella
+Banco Ripley,banco,bancoripley.com.pe,bancoripley
+Yape,billetera,yape.com.pe,yape
+Plin,billetera,plin.pe,plin
+Caja Arequipa,caja,cajaarequipa.pe,cajaarequipa
+Caja Huancayo,caja,cajahuancayo.com.pe,cajahuancayo
+Caja Piura,caja,cajapiura.pe,cajapiura
+Caja Cusco,caja,cmac-cusco.com.pe,cajacusco;cmaccusco
+Caja Sullana,caja,cajasullana.pe,cajasullana
+Serpost,courier,serpost.com.pe;gob.pe,serpost
+Olva Courier,courier,olvacourier.com,olvacourier
+Claro,telefonia,claro.com.pe,claroperu
+Movistar,telefonia,movistar.com.pe,movistar
+Entel,telefonia,entel.pe,entelperu
+Bitel,telefonia,bitel.com.pe,bitel
+SUNAT,estado,sunat.gob.pe;gob.pe,sunat
+RENIEC,estado,reniec.gob.pe;gob.pe,reniec
+SBS,estado,sbs.gob.pe;gob.pe,sbsperu
+Poder Judicial,estado,pj.gob.pe;gob.pe,poderjudicial
+Indecopi,estado,indecopi.gob.pe;gob.pe,indecopi

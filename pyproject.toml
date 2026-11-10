@@ -1,0 +1,21 @@
+[project]
+name = "pillao"
+version = "0.1.0"
+description = "Mande la captura de un mensaje sospechoso y le decimos si es estafa, con pruebas."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "google-genai>=1.0",
+    "pydantic>=2.7",
+    "python-dotenv>=1.0",
+    "requests>=2.31",
+    "streamlit>=1.40",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["app"]
+testpaths = ["tests"]
