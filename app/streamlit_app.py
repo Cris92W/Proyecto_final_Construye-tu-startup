@@ -20,7 +20,7 @@ from pillao.llm import ClienteLLM
 RAIZ = Path(__file__).resolve().parent.parent
 load_dotenv(RAIZ / ".env")
 
-REPO = "https://github.com/Cris92W/pillao"
+REPO = "https://github.com/Cris92W/Proyecto_final_Construye-tu-startup"
 TIPO_CAMBIO = 3.75  # soles por dólar, referencial
 
 # Recreados a partir de modalidades de estafa difundidas públicamente; nombres, números y cuentas son ficticios.

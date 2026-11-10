@@ -63,7 +63,7 @@ El detalle campo por campo está en [`docs/alcance.md`](docs/alcance.md).
 **Cómo correrlo en local** (Windows, macOS o Linux con [uv](https://docs.astral.sh/uv/)):
 
 ```bash
-git clone https://github.com/Cris92W/pillao && cd pillao
+git clone https://github.com/Cris92W/Proyecto_final_Construye-tu-startup && cd Proyecto_final_Construye-tu-startup
 cp .env.example .env          # y pega tu clave de https://aistudio.google.com/apikey
 uv sync
 uv run streamlit run app/streamlit_app.py
