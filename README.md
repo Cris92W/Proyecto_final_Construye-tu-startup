@@ -89,10 +89,10 @@ flowchart LR
 
 **Modelo y por qué:** `gemini-3.5-flash-lite`, con `gemini-3.5-flash` de respaldo si el primero está saturado. Lee imágenes, respeta un esquema JSON y hace **una sola llamada** por revisión; las comprobaciones (dominios, RUC, RDAP) no cuestan. Lo elegimos midiendo con 14 capturas reales de estafas publicadas por medios peruanos (2026-11-10):
 
-| Modelo | Tiempo por captura | Veredictos correctos | Plan gratuito |
+| Modelo | Tiempo por captura | Resultado | Plan gratuito |
 |---|---|---|---|
-| `gemini-3.5-flash-lite` | 2 a 5 s | 14 de 14 | ~500 consultas al día |
-| `gemini-3.5-flash` | 10 a 41 s | Los mismos en las que respondió | 20 consultas al día (se agotó en la prueba) |
+| `gemini-3.5-flash-lite` | 2 a 5 s | 13 de 14 en 🔴 o 🟠; el voucher falso de Yape en 🟡 «no se puede comprobar», como debe ser. Ninguna pasó como segura. | ~500 consultas al día |
+| `gemini-3.5-flash` | 10 a 41 s | Los mismos veredictos en las 10 que alcanzó a revisar | 20 consultas al día (se agotó en la prueba) |
 
 Para una persona mayor que espera frente al celular, 3 segundos contra 30 es la diferencia entre usarlo o no. (`gemini-2.5-flash` ya no está disponible para cuentas nuevas.)
 
