@@ -201,7 +201,7 @@ def edad_dominio_dias(dominio: str, hoy: date | None = None) -> int | None:
     if dominio.endswith(".pe"):
         return None
     try:
-        respuesta = requests.get(f"https://rdap.org/domain/{dominio}", timeout=8,
+        respuesta = requests.get(f"https://rdap.org/domain/{dominio}", timeout=5,
                                  headers={"Accept": "application/rdap+json"})
         if respuesta.status_code != 200:
             return None
@@ -420,7 +420,7 @@ def pasos(mensaje: Mensaje, veredicto: Veredicto, conocida: Entidad | None) -> l
     if veredicto.nivel in (ROJO, NARANJA):
         lista.append("No responda, no pague y no dé claves ni códigos.")
     if mensaje.links:
-        lista.append("No abra el link. Para entrar a su banco, use la app oficial o escriba usted la dirección.")
+        lista.append("No abra el link. Si quiere revisar, entre usted mismo a la web o a la app oficial.")
     if mensaje.tipo == Tipo.familiar_en_apuros:
         lista.append("Antes de enviar dinero, llame a su familiar a su número de siempre.")
     if mensaje.tipo == Tipo.aviso_de_banco_o_billetera or (conocida and conocida.tipo in ("banco", "billetera", "caja")):

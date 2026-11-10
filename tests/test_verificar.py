@@ -144,3 +144,12 @@ def test_link_que_imita_a_whatsapp():
     assert titulos(r) == ["El link imita a WhatsApp"]
     oficial = v.analizar(mensaje(links=["https://wa.me/51999999999"]), ENTIDADES, edad=sin_red(1))
     assert oficial.hallazgos == []
+
+
+def test_sms_de_falabella_con_link_acortado():
+    assert v.buscar_entidad("FALABELLA", ENTIDADES).nombre == "Falabella"
+    m = mensaje(tipo=Tipo.aviso_de_banco_o_billetera, entidad_que_dice_ser="FALABELLA", links=["https://bit.ly/37qT7kj"])
+    r = v.analizar(m, ENTIDADES, edad=sin_red(None))
+    assert r.veredicto.razon == "El link no es de Falabella"
+    # la tienda oficial no se confunde con un imitador
+    assert v.analizar(mensaje(links=["https://www.falabella.com.pe/ofertas"]), ENTIDADES).hallazgos == []

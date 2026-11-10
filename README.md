@@ -87,7 +87,14 @@ flowchart LR
     C --> H[Streamlit: veredicto,<br/>pruebas, lo no comprobable,<br/>qué hacer, avisar por WhatsApp]
 ```
 
-**Modelo y por qué:** `gemini-2.5-flash`, porque lee imágenes, respeta un esquema JSON y su plan gratuito alcanza para el demo. Hace **una sola llamada** por revisión; las comprobaciones (dominios, RUC, RDAP) no cuestan.
+**Modelo y por qué:** `gemini-3.5-flash-lite`, con `gemini-3.5-flash` de respaldo si el primero está saturado. Lee imágenes, respeta un esquema JSON y hace **una sola llamada** por revisión; las comprobaciones (dominios, RUC, RDAP) no cuestan. Lo elegimos midiendo con 14 capturas reales de estafas publicadas por medios peruanos (2026-11-10):
+
+| Modelo | Tiempo por captura | Veredictos correctos | Plan gratuito |
+|---|---|---|---|
+| `gemini-3.5-flash-lite` | 2 a 5 s | 14 de 14 | ~500 consultas al día |
+| `gemini-3.5-flash` | 10 a 41 s | Los mismos en las que respondió | 20 consultas al día (se agotó en la prueba) |
+
+Para una persona mayor que espera frente al celular, 3 segundos contra 30 es la diferencia entre usarlo o no. (`gemini-2.5-flash` ya no está disponible para cuentas nuevas.)
 
 **Privacidad:** la captura se procesa en memoria y no se guarda. Las capturas del demo tienen los números de otras personas tapados. El plan gratuito de Gemini puede usar los datos para mejorar el servicio: en producción se usaría el plan de pago, cuyos datos no se usan para entrenar modelos.
 
@@ -101,7 +108,14 @@ flowchart LR
 | Familia | S/ 9 al mes | Hasta 5 celulares, revisiones ilimitadas y aviso al hijo o hija cuando el veredicto es 🔴 |
 | Entidades | S/ 2,500 al mes | Marca blanca para cajas y cooperativas, y panel de las modalidades de estafa que reciben sus clientes |
 
-**Costo por usuario (margen de contribución):** ✏️ se completa con lo que mide la app en «Cuánto costó esta revisión» (tokens reales × precio de lista del modelo).
+**Costo por usuario (margen de contribución):** medido con tokens reales, una revisión usa unos 2,100 tokens de entrada y 250 de salida: **US$ 0.0012 (S/ 0.004)** al precio de lista de `gemini-3.5-flash-lite` (US$ 0.30 y 2.50 por millón de tokens, según rastreadores de precios; confirmar en [ai.google.dev/pricing](https://ai.google.dev/gemini-api/docs/pricing)). Las comprobaciones no cuestan.
+
+| Plan Familia (S/ 9 al mes) | Revisiones al mes | Costo de IA | Margen de contribución |
+|---|---|---|---|
+| Uso normal (5 celulares) | 100 | S/ 0.44 | 95 % |
+| Uso intenso | 500 | S/ 2.20 | 76 % |
+
+El servidor del demo es gratis (Streamlit Community Cloud); en producción, un servidor compartido para miles de familias costaría unos centavos por familia. La app muestra el costo real de cada revisión en «Cuánto costó esta revisión».
 
 ## 8. Herramientas del curso
 

@@ -159,7 +159,7 @@ def mostrar(mensaje, resultado, uso, modelo) -> None:
             f"El detalle de qué comprobamos y qué no está en [docs/alcance.md]({REPO}/blob/main/docs/alcance.md).")
 
     with st.expander("Cuánto costó esta revisión"):
-        costo = uso.costo_usd(modelo)
+        costo = uso.costo_usd()
         st.markdown(f"{uso.llamadas} llamada al modelo `{modelo}`: {uso.tokens_entrada:,} tokens de entrada y "
                     f"{uso.tokens_salida:,} de salida.")
         if costo is not None:
@@ -215,7 +215,7 @@ if st.button("🔍 Revisar el mensaje", type="primary", use_container_width=True
             st.error(f"No pudimos leer el mensaje. Intente de nuevo en un minuto. ({type(error).__name__})")
             st.stop()
         resultado = verificar.analizar(mensaje, entidades(), registro_sbs())
-    st.session_state["revision"] = (huella, mensaje, resultado, cliente.uso, cliente.modelo)
+    st.session_state["revision"] = (huella, mensaje, resultado, cliente.uso, ", ".join(cliente.uso.modelos))
 
 revision = st.session_state.get("revision")
 if revision and revision[0] == huella:
