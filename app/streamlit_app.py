@@ -66,6 +66,7 @@ CLASE_FUERZA = {verificar.PRUEBA: "prueba", verificar.REGLA: "regla", verificar.
 ESCUDO = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" '
           'stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'
           '<path d="M12 8v4"/><path d="M12 16h.01"/></svg>')
+BANDERA = '<span class="bandera" role="img" aria-label="Bandera del Perú"><i></i><i></i><i></i></span>'
 
 
 def bloque(fragmento: str) -> None:
@@ -169,10 +170,11 @@ def pantalla_entrada() -> None:
     bloque(f"""
         <div class="hero">
           <div>
-            <div class="marca">{ESCUDO}<span>Pillao</span><span class="etiqueta">Demo pública</span></div>
+            <div class="marca">{ESCUDO}<span>Pillao</span>
+              <span class="etiqueta">{BANDERA}Solo para el Perú</span></div>
             <div class="hero-titulo">¿Le llegó un mensaje raro?<br><em>Revíselo antes de responder.</em></div>
-            <p class="hero-texto">Suba la captura del WhatsApp o del SMS. En segundos le decimos si es estafa,
-              con la prueba concreta, y qué no se puede comprobar.</p>
+            <p class="hero-texto">Suba la captura del WhatsApp o del SMS que le llegó en el Perú. En segundos le
+              decimos si es estafa, con la prueba concreta, y qué no se puede comprobar.</p>
             <div class="chips"><span class="chip">Respuesta en segundos</span>
               <span class="chip">No guardamos su mensaje</span>
               <span class="chip">Nunca le diremos «es seguro»</span></div>
@@ -244,7 +246,7 @@ def pantalla_entrada() -> None:
           <div class="paso"><span class="n">3</span><div><b>Le decimos qué hacer</b>
             <div class="t">Con la prueba concreta y lo que nadie puede comprobar.</div></div></div>
         </div>
-        <div class="fuentes">Comprobamos contra fuentes públicas:
+        <div class="fuentes">Comprobamos contra fuentes públicas del Perú:
           <span class="f">Dominios oficiales</span><span class="f">RDAP en vivo</span>
           <span class="f">Registro de la SBS</span><span class="f">Dígito verificador del RUC</span></div>""")
 
@@ -331,6 +333,8 @@ def diapo_como_decidimos(r: dict) -> None:
             <li><b>Muy sospechoso:</b> hay <i>señales</i> típicas de estafa, pero ninguna prueba.</li>
             <li><b>No pudimos comprobarlo:</b> no hay pruebas ni señales. <b>Nunca decimos que algo es seguro.</b></li>
           </ul>
+          <p><b>Solo para el Perú:</b> las reglas comparan con los dominios de bancos, cajas, billeteras y entidades
+            del Estado peruano, el registro de la SBS y el RUC de la SUNAT. Con mensajes de otros países no sirve.</p>
           <p>El detalle está en <a href="{REPO}/blob/main/docs/alcance.md" target="_blank">qué comprobamos y qué no</a>.</p>
         </div>""")
     with st.expander("Lo que leyó la IA en el mensaje"):
@@ -420,6 +424,8 @@ bloque(f"""
     <div class="pie">
       <div class="pie-links"><a href="{REPO}/blob/main/docs/alcance.md" target="_blank">Qué comprobamos y qué no</a>
         <a href="{REPO}" target="_blank">Código en GitHub</a></div>
+      <div class="solo-peru">{BANDERA}<span><b>Solo para el Perú.</b> Comparamos con bancos, cajas, billeteras y
+        entidades peruanas.</span></div>
       <div>Pillao · Proyecto final de la Diplomatura de Ciencia de Datos (Q-Lab PUCP, 2026).
         No reemplaza a su banco ni a la policía.</div>
     </div>""")

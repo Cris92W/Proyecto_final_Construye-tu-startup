@@ -7,14 +7,21 @@
 }
 
 /* ---------- Fondo de toda la página ---------- */
-.stApp { background:var(--noche); }
+/* Degradado de varios colores que se queda quieto detrás del contenido (como una aurora),
+   y encima una trama de puntos que sí se desplaza. */
+.stApp {
+  background-color:#0B1B3A;
+  background-image:
+    radial-gradient(58% 48% at 92% 4%, rgba(20,184,166,.55) 0%, rgba(20,184,166,0) 70%),
+    radial-gradient(52% 46% at 2% 18%, rgba(99,102,241,.55) 0%, rgba(99,102,241,0) 72%),
+    radial-gradient(60% 55% at 100% 92%, rgba(14,165,233,.42) 0%, rgba(14,165,233,0) 72%),
+    radial-gradient(55% 50% at 6% 100%, rgba(147,51,234,.38) 0%, rgba(147,51,234,0) 72%),
+    linear-gradient(135deg, #0B1B3A 0%, #0B2D55 38%, #08425A 70%, #0A2E45 100%);
+  background-attachment:fixed;
+}
 header[data-testid="stHeader"] { display:none; }
 [data-testid="stMain"] {
-  background:
-    radial-gradient(1000px 520px at 88% -6%, rgba(45,212,191,.20), transparent 60%),
-    radial-gradient(820px 500px at -8% 6%, rgba(99,102,241,.18), transparent 62%),
-    radial-gradient(rgba(255,255,255,.05) 1px, transparent 1.3px) 0 0 / 24px 24px,
-    linear-gradient(180deg, var(--noche-2) 0%, var(--noche) 100%);
+  background:radial-gradient(rgba(255,255,255,.06) 1px, transparent 1.3px) 0 0 / 24px 24px;
   background-attachment:local;
 }
 .block-container { max-width:820px; padding-top:2.2rem; padding-bottom:2rem; }
@@ -24,9 +31,15 @@ header[data-testid="stHeader"] { display:none; }
 .hero { display:grid; grid-template-columns:1.35fr .9fr; gap:1.5rem; align-items:center; color:#fff; margin:0 0 1.4rem; }
 .marca { display:flex; align-items:center; gap:.5rem; font-family:var(--titulos); font-weight:800; font-size:1.15rem; }
 .marca svg { width:30px; height:30px; color:var(--turquesa); }
-.etiqueta { margin-left:.35rem; padding:.18rem .6rem; border-radius:999px; font-size:.72rem; font-weight:700;
-  letter-spacing:.06em; text-transform:uppercase; color:#99F6E4; background:rgba(45,212,191,.12);
-  border:1px solid rgba(45,212,191,.35); }
+.etiqueta { display:inline-flex; align-items:center; gap:.45rem; margin-left:.35rem; padding:.22rem .7rem .22rem .45rem;
+  border-radius:999px; font-size:.74rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff;
+  background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.28); backdrop-filter:blur(6px); }
+/* Bandera del Perú dibujada (los emojis de banderas no se ven en Windows) */
+.bandera { display:inline-flex; width:20px; height:14px; border-radius:3px; overflow:hidden;
+  box-shadow:0 0 0 1px rgba(255,255,255,.35); }
+.bandera i { flex:1; background:#D91023; }
+.bandera i:nth-child(2) { background:#fff; }
+.solo-peru { margin:.9rem 0 0; font-size:.9rem; color:#C9D6E2; display:flex; align-items:center; gap:.5rem; }
 .hero-titulo { font-family:var(--titulos); font-weight:800; font-size:2.6rem; line-height:1.08; letter-spacing:-.012em;
   margin:1.2rem 0 .8rem; color:#fff; }
 .hero-titulo em { font-style:normal; background:linear-gradient(90deg, #5EEAD4, #67E8F9);
@@ -121,8 +134,9 @@ button[data-testid="stBaseButton-primary"]:not(:disabled):hover { background:lin
 @keyframes entrar { from { opacity:0; transform:translateX(26px); } to { opacity:1; transform:none; } }
 
 /* Atrás / Siguiente, fijos abajo mientras se lee */
-[data-testid="stLayoutWrapper"]:has(> .st-key-nav) { position:sticky; bottom:0; z-index:20; }
-.st-key-nav { padding:1.1rem 0 .9rem; background:linear-gradient(to bottom, rgba(8,27,44,0), var(--noche) 32%); }
+[data-testid="stLayoutWrapper"]:has(> .st-key-nav) { position:sticky; bottom:.6rem; z-index:20; margin-top:.4rem; }
+.st-key-nav { padding:.65rem; border-radius:20px; background:rgba(9,25,48,.8); backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,.12); box-shadow:0 20px 40px -24px rgba(0,0,0,.8); }
 .st-key-nav [data-testid="stHorizontalBlock"] { flex-wrap:nowrap; gap:.6rem; }
 .st-key-nav [data-testid="stColumn"] { min-width:0 !important; }
 .st-key-nav button { min-height:3.3rem; border-radius:14px; }
