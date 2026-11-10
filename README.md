@@ -2,7 +2,7 @@
 
 > **Las personas mayores nos mandan la captura de un mensaje sospechoso y en segundos les decimos si es estafa, con la prueba concreta, y qué no se puede comprobar y cómo hacerlo ellas mismas.**
 
-**Demo:** ✏️ URL de Streamlit Cloud (pendiente) · **Video de respaldo:** ✏️ (pendiente) · Proyecto final de la Diplomatura de Ciencia de Datos para las Ciencias Sociales y la Gestión Pública (Q-Lab PUCP, 2026).
+**Demo:** [pillao.streamlit.app](https://pillao.streamlit.app) · **Video de respaldo:** ✏️ (pendiente) · Proyecto final de la Diplomatura de Ciencia de Datos para las Ciencias Sociales y la Gestión Pública (Q-Lab PUCP, 2026).
 
 ---
 
@@ -60,7 +60,7 @@ El detalle campo por campo está en [`docs/alcance.md`](docs/alcance.md).
 
 ## 6. Demo
 
-**URL:** ✏️ pendiente (Streamlit Community Cloud).
+**URL:** [https://pillao.streamlit.app](https://pillao.streamlit.app) (Streamlit Community Cloud).
 
 **Cómo correrlo en local** (Windows, macOS o Linux con [uv](https://docs.astral.sh/uv/)):
 
