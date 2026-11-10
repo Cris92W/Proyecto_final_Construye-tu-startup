@@ -1,0 +1,180 @@
+/* Estilos propios de Pillao. Colores y tipografías base en .streamlit/config.toml. */
+:root { --tinta:#14212B; --suave:#5B6670; --borde:#E3DDD1; --marca:#0E5E6F; --papel:#F6F4EF; }
+.block-container { padding-top:1.6rem; padding-bottom:2rem; }
+header[data-testid="stHeader"] { background:transparent; }
+
+/* ---------- Portada ---------- */
+.hero { position:relative; overflow:hidden; border-radius:26px; padding:1.9rem 2rem 1.6rem; margin:0 0 .4rem;
+  color:#fff; background:radial-gradient(120% 140% at 100% 0%, #1C8C9E 0%, #0E5E6F 45%, #0A3F4C 100%);
+  box-shadow:0 22px 44px -24px rgba(10,63,76,.65); }
+.marca { display:flex; align-items:center; gap:.5rem; font-weight:700; font-size:1.05rem; letter-spacing:.03em; }
+.marca svg { width:28px; height:28px; }
+.hero-titulo { font-family:"Fraunces", Georgia, serif; font-weight:700; font-size:2.35rem; line-height:1.12;
+  margin:1rem 0 .65rem; letter-spacing:-.01em; color:#fff; }
+.hero-titulo em { font-style:normal; color:#FFD49A; }
+.hero-texto { font-size:1.1rem; line-height:1.55; color:rgba(255,255,255,.9); margin:0 0 1.1rem; max-width:33rem; }
+.chips { display:flex; flex-wrap:wrap; gap:.5rem; position:relative; z-index:1; }
+.chip { display:inline-flex; align-items:center; gap:.45rem; padding:.36rem .85rem; border-radius:999px;
+  font-size:.9rem; color:#fff; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.24); }
+.chip:before { content:""; width:7px; height:7px; border-radius:50%; background:#FFD49A; }
+.marca-agua { position:absolute; right:-36px; bottom:-46px; width:230px; height:230px; opacity:.09; color:#fff; }
+.marca-agua svg { width:100%; height:100%; }
+
+/* ---------- Entrada ---------- */
+.st-key-entrada { background:#fff; box-shadow:0 14px 34px -26px rgba(20,33,43,.45); }
+.sec { font-family:"Fraunces", Georgia, serif; font-weight:700; font-size:1.45rem; color:var(--tinta); margin:.2rem 0 .2rem; }
+
+/* Las tres formas de revisar, como botones de pastilla en vez de círculos de radio */
+.st-key-entrada [data-testid="stRadioGroup"] { display:flex; flex-wrap:wrap; gap:.5rem; }
+.st-key-entrada [data-testid="stRadioOption"] { margin:0; padding:.55rem 1.05rem; border-radius:999px; cursor:pointer;
+  background:#fff; border:1.5px solid var(--borde); transition:background .15s, border-color .15s; }
+.st-key-entrada [data-testid="stRadioOption"]:hover { border-color:var(--marca); }
+.st-key-entrada [data-testid="stRadioOption"] > div > div:not([data-testid="stMarkdownContainer"]) { display:none; }
+.st-key-entrada [data-testid="stRadioOption"] p { font-weight:700; font-size:1rem; margin:0; }
+.st-key-entrada [data-testid="stRadioOption"][data-selected="true"] { background:var(--marca); border-color:var(--marca); }
+.st-key-entrada [data-testid="stRadioOption"][data-selected="true"] p { color:#fff; }
+
+/* Zona para subir la captura, en español */
+[data-testid="stFileUploaderDropzone"] { background:#FBFAF7; border:2px dashed #BFD6DA; border-radius:16px; padding:1.2rem; }
+[data-testid="stFileUploaderDropzone"] button [data-testid="stMarkdownContainer"] p { font-size:0 !important; }
+[data-testid="stFileUploaderDropzone"] button [data-testid="stMarkdownContainer"] p::after {
+  content:"Elegir la captura"; font-size:1rem; font-weight:700; }
+[data-testid="stFileUploaderDropzoneInstructions"] span { font-size:0 !important; }
+[data-testid="stFileUploaderDropzoneInstructions"] span::after {
+  content:"o arrástrela aquí · PNG, JPG o WEBP, hasta 10 MB"; font-size:.92rem; color:var(--suave); }
+
+button[data-testid="stBaseButton-primary"] { padding:.8rem 1rem; border-radius:14px; }
+button[data-testid="stBaseButton-primary"]:not(:disabled) { box-shadow:0 12px 26px -14px rgba(14,94,111,.9); }
+.stButton button p { font-size:1.12rem; font-weight:700; }
+
+.como { display:grid; grid-template-columns:repeat(3, 1fr); gap:.75rem; margin:.6rem 0 0; }
+.paso { display:flex; gap:.75rem; align-items:flex-start; background:transparent; border-top:2px solid var(--borde);
+  padding:.9rem .2rem 0; }
+.paso .n { flex:0 0 30px; display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px;
+  border-radius:50%; background:#E2EFF1; color:var(--marca); font-weight:800; }
+.paso b { display:block; font-size:1rem; color:var(--tinta); margin-bottom:.15rem; }
+.paso .t { font-size:.92rem; line-height:1.45; color:var(--suave); }
+
+/* ---------- Barra superior del resultado ---------- */
+.st-key-barra [data-testid="stHorizontalBlock"] { flex-wrap:nowrap; align-items:center; }
+.st-key-barra [data-testid="stColumn"] { min-width:0 !important; }
+.marca-barra { display:flex; align-items:center; gap:.45rem; font-weight:800; font-size:1.15rem; color:var(--tinta); }
+.marca-barra svg { width:26px; height:26px; color:var(--marca); }
+.st-key-barra [data-testid="stColumn"]:last-child [data-testid="stVerticalBlock"] { align-items:flex-end; }
+.st-key-barra .stButton { display:flex; justify-content:flex-end; }
+.st-key-barra .stButton button p { font-size:.98rem; color:var(--marca); }
+
+/* ---------- Carrusel ---------- */
+.progreso { margin:.4rem 0 1rem; }
+.segmentos { display:flex; gap:.35rem; }
+.segmentos span { flex:1; height:6px; border-radius:999px; background:#E2DCD0; }
+.segmentos span.lleno { background:var(--marca); }
+.progreso-texto { display:flex; justify-content:space-between; align-items:baseline; gap:.8rem; margin-top:.7rem; }
+.progreso-texto .cual { font-size:.8rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--suave); }
+.progreso-texto .ayuda { font-size:.82rem; color:var(--suave); text-align:right; }
+.titulo-diapo { font-family:"Fraunces", Georgia, serif; font-weight:700; font-size:1.75rem; line-height:1.15;
+  color:var(--tinta); margin:.2rem 0 .3rem; }
+.intro-diapo { color:var(--suave); font-size:1.02rem; line-height:1.5; margin:0 0 .4rem; }
+
+[class*="st-key-diapo-"] { animation:entrar .32s ease-out both; }
+@keyframes entrar { from { opacity:0; transform:translateX(26px); } to { opacity:1; transform:none; } }
+
+/* Los botones Atrás / Siguiente quedan fijos abajo mientras se lee la diapositiva. */
+[data-testid="stLayoutWrapper"]:has(> .st-key-nav) { position:sticky; bottom:0; z-index:20; }
+.st-key-nav { padding:1rem 0 .9rem; background:linear-gradient(to bottom, rgba(246,244,239,0), var(--papel) 30%); }
+.st-key-nav [data-testid="stHorizontalBlock"] { flex-wrap:nowrap; gap:.6rem; }
+.st-key-nav [data-testid="stColumn"] { min-width:0 !important; }
+.st-key-nav button { min-height:3.3rem; border-radius:14px; }
+.st-key-nav button p { white-space:normal !important; line-height:1.2; }
+
+/* ---------- Veredicto ---------- */
+.veredicto { --c:#B3261E; position:relative; overflow:hidden; border-radius:24px; border:1px solid;
+  padding:1.5rem 1.6rem 1.25rem 1.9rem; margin:.2rem 0 .2rem; }
+.veredicto:before { content:""; position:absolute; left:0; top:0; bottom:0; width:8px; background:var(--c); }
+.v-rojo { --c:#B3261E; background:#FDECEA; border-color:#F2C3BF; }
+.v-naranja { --c:#C25E00; background:#FFF1E0; border-color:#F4CFA2; }
+.v-amarillo { --c:#8A6D00; background:#FFF8DC; border-color:#E9D899; }
+.v-kicker { display:flex; align-items:center; gap:.55rem; font-size:.8rem; font-weight:700; letter-spacing:.09em;
+  text-transform:uppercase; color:var(--c); }
+.v-punto { width:11px; height:11px; border-radius:50%; background:var(--c); box-shadow:0 0 0 5px rgba(0,0,0,.06); }
+.v-titulo { font-family:"Fraunces", Georgia, serif; font-weight:700; font-size:2.5rem; line-height:1.1;
+  color:var(--tinta); margin:.55rem 0 .35rem; }
+.v-sub { font-size:1.15rem; font-weight:700; color:var(--tinta); margin-bottom:.9rem; }
+.v-motivo { background:rgba(255,255,255,.72); border-radius:14px; padding:.8rem 1rem; font-size:1.05rem;
+  line-height:1.5; color:#23303A; }
+.v-motivo b { display:block; font-size:.76rem; letter-spacing:.08em; text-transform:uppercase; color:var(--suave);
+  margin-bottom:.2rem; }
+.escala { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1rem; }
+.escala span { flex:1; min-width:105px; text-align:center; padding:.42rem .5rem; border-radius:999px;
+  font-size:.84rem; font-weight:700; color:#7B858D; background:rgba(255,255,255,.55);
+  border:1px solid rgba(20,33,43,.08); }
+.escala span.on { color:#fff; background:var(--c); border-color:var(--c); }
+.escala-nota { margin-top:.55rem; font-size:.84rem; color:var(--suave); }
+
+/* ---------- Pasos, tarjetas y detalle ---------- */
+ol.pasos { list-style:none; counter-reset:paso; margin:0 0 .6rem; padding:0; }
+ol.pasos li { counter-increment:paso; position:relative; margin:0 0 .5rem; padding:.85rem 1rem .85rem 3.3rem;
+  background:#fff; border:1px solid var(--borde); border-radius:14px; font-size:1.08rem; line-height:1.5;
+  color:var(--tinta); }
+ol.pasos li:before { content:counter(paso); position:absolute; left:.9rem; top:.82rem; width:1.75rem;
+  height:1.75rem; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  background:var(--marca); color:#fff; font-weight:800; font-size:.95rem; }
+.st-key-avisar a { background:#1F8F55; border-color:#1F8F55; border-radius:14px; padding:.8rem 1rem; }
+.st-key-avisar a:hover { background:#18764A; border-color:#18764A; }
+.st-key-avisar a p { color:#fff; font-size:1.12rem; font-weight:700; }
+
+.tarjeta { display:flex; gap:.9rem; background:#fff; border:1px solid var(--borde); border-radius:16px;
+  padding:1rem 1.1rem; margin-bottom:.6rem; }
+.tarjeta > div:last-child { flex:1; min-width:0; overflow-wrap:anywhere; }
+.t-icono { flex:0 0 2.1rem; height:2.1rem; border-radius:50%; display:flex; align-items:center;
+  justify-content:center; font-weight:800; font-size:1.05rem; }
+.t-contra .t-icono { background:#FDECEA; color:#B3261E; }
+.t-favor .t-icono { background:#E7F4EC; color:#1E7A46; }
+.t-nc .t-icono { background:#E9EFF6; color:#2F5D8A; }
+.t-titulo { font-weight:700; font-size:1.07rem; line-height:1.35; color:var(--tinta); }
+.t-detalle { margin-top:.2rem; line-height:1.5; color:#33414C; }
+.t-meta { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; margin-top:.55rem; font-size:.84rem;
+  color:#6B757D; }
+.pill { padding:.12rem .6rem; border-radius:999px; font-size:.72rem; font-weight:800; letter-spacing:.06em;
+  text-transform:uppercase; background:var(--tinta); color:#fff; }
+.pill.senal { background:#ECE6DA; color:#3A444C; }
+.t-hacer { margin-top:.6rem; padding:.55rem .75rem; border-radius:10px; background:#F1F5FA; color:#1F3A55;
+  line-height:1.45; }
+.vacio { padding:1rem; border:1px dashed var(--borde); border-radius:14px; color:var(--suave); }
+
+.cifras { display:grid; grid-template-columns:repeat(3, 1fr); gap:.6rem; margin:.2rem 0 1rem; }
+.cifra { background:#fff; border:1px solid var(--borde); border-radius:16px; padding:.85rem 1rem; }
+.cifra b { display:block; font-family:"Fraunces", Georgia, serif; font-size:1.45rem; color:var(--tinta); line-height:1.2;
+  overflow-wrap:anywhere; }
+.cifra span { font-size:.82rem; color:var(--suave); }
+.reglas { background:#fff; border:1px solid var(--borde); border-radius:16px; padding:1rem 1.2rem; line-height:1.55; }
+.reglas p { margin:.2rem 0 .5rem; }
+.reglas ul { margin:.2rem 0 .4rem 1.1rem; padding:0; }
+.reglas li { margin:.25rem 0; }
+[data-testid="stExpander"] details { background:#fff; border-radius:14px; }
+
+/* ---------- Pie ---------- */
+.pie { margin-top:2rem; padding-top:1.1rem; border-top:1px solid var(--borde); color:var(--suave);
+  font-size:.88rem; line-height:1.5; }
+.pie-links { display:flex; flex-wrap:wrap; gap:1.1rem; margin-bottom:.3rem; }
+.pie-links a { color:var(--marca); font-weight:700; text-decoration:none; }
+
+/* ---------- Celular ---------- */
+@media (max-width:640px) {
+  .block-container { padding-top:1rem; }
+  .hero { padding:1.4rem 1.25rem 1.25rem; border-radius:20px; }
+  .hero-titulo { font-size:1.8rem; }
+  .hero-texto { font-size:1rem; }
+  .marca-agua { display:none; }
+  .como { grid-template-columns:1fr; }
+  .v-titulo { font-size:2rem; }
+  .veredicto { padding:1.2rem 1.1rem 1.1rem 1.4rem; }
+  .titulo-diapo { font-size:1.5rem; }
+  .escala { gap:.3rem; }
+  .escala span { min-width:0; padding:.42rem .25rem; font-size:.74rem; }
+  .cifras { grid-template-columns:1fr; gap:.4rem; }
+  .cifra { display:flex; align-items:baseline; gap:.7rem; padding:.6rem .9rem; }
+  .cifra b { font-size:1.2rem; }
+  .progreso-texto .ayuda { display:none; }
+  .st-key-nav button p { font-size:1rem !important; }
+}

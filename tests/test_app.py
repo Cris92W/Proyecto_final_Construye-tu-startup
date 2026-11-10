@@ -30,6 +30,19 @@ def test_revision_completa_con_ejemplo(monkeypatch):
     at.radio[0].set_value("🧪 Ver un ejemplo").run()
     at.button[0].click().run()
     assert not at.exception
-    pagina = " ".join(m.value for m in at.markdown)
+
+    # El resultado es un carrusel: se recorre con «Siguiente» hasta la última diapositiva.
+    pagina, vistas = " ".join(m.value for m in at.markdown), 1
+    while siguiente := [b for b in at.button if b.label.startswith("Siguiente")]:
+        siguiente[0].click().run()
+        assert not at.exception
+        pagina += " ".join(m.value for m in at.markdown)
+        vistas += 1
+    assert vistas == 5  # veredicto, qué hacer, pruebas, lo que no se puede comprobar, cómo decidimos
     assert "Muy sospechoso" in pagina
     assert "Si su familiar de verdad cambió de número" in pagina
+
+    # «Revisar otro mensaje» vuelve a la pantalla de entrada.
+    [b for b in at.button if "Revisar otro mensaje" in b.label][-1].click().run()
+    assert not at.exception
+    assert at.radio and at.button[0].label == "🔍 Revisar el mensaje"
