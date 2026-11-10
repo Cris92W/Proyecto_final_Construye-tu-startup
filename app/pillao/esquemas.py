@@ -40,6 +40,8 @@ class TipoSenal(str, Enum):
     oferta_demasiado_buena = "oferta_demasiado_buena"
     pide_secreto = "pide_secreto"
     escribe_desde_numero_personal = "escribe_desde_numero_personal"
+    ganar_dinero_por_tareas = "ganar_dinero_por_tareas"
+    devolver_pago_por_error = "devolver_pago_por_error"
 
 
 class Senal(BaseModel):

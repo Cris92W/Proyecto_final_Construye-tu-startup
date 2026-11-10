@@ -46,6 +46,8 @@ Pillao recibe una captura de pantalla o el texto del mensaje y devuelve:
 3. **Lo que no podemos comprobar y cómo hacerlo usted:** de quién es el número de Yape (secreto bancario), si el voucher es real, si su hijo de verdad cambió de número.
 4. **Qué hacer ahora**, en 3 o 4 pasos, y un botón para **avisar a la familia por WhatsApp**.
 
+**Modalidades que reconoce:** SMS falsos de bancos y cajas con links imitadores · «Mamá, este es mi número nuevo» · préstamos sin Infocorp con cobro adelantado · paquetes «retenidos» · el código de WhatsApp «enviado por error» (robo de cuenta) · trabajos por dar «me gusta» o reseñas («estafa de las tareas») · «le yapeé por error, devuélvamelo» · vouchers de **Yape falso** · páginas falsas de Yape que piden clave o tarjeta.
+
 **Insight:** la IA no debe *opinar* si algo es estafa; debe *leer*. Lo que convence a una persona mayor, y a su hijo, es una prueba concreta («este link no es del BCP») y la honestidad sobre lo que nadie puede saber. Por eso en Pillao **la IA solo lee y extrae; el veredicto lo deciden reglas auditables en Python.** Además, los estafadores usan nombres de entidades reales: por eso comprobamos el *canal* (el link, el número, lo que piden), no el nombre.
 
 El detalle campo por campo está en [`docs/alcance.md`](docs/alcance.md).

@@ -42,7 +42,7 @@ FUENTE_IA = "Lectura del mensaje por la IA, con la frase exacta"
 SUFIJOS_DOBLES = {"com.pe", "gob.pe", "org.pe", "edu.pe", "net.pe", "nom.pe", "mil.pe", "sld.pe",
                   "com.ar", "com.br", "com.co", "com.mx", "com.ec", "com.bo", "com.ve", "co.uk"}
 ACORTADORES = {"bit.ly", "cutt.ly", "tinyurl.com", "t.ly", "is.gd", "rb.gy", "shorturl.at",
-               "acortar.link", "ow.ly", "s.id", "t.co", "tiny.cc", "rebrand.ly", "bitly.com"}
+               "acortar.link", "ow.ly", "s.id", "t.co", "tiny.cc", "rebrand.ly", "bitly.com", "goo.gl"}
 DIAS_DOMINIO_NUEVO = 90
 
 
@@ -318,8 +318,9 @@ def revisar_pedidos(mensaje: Mensaje) -> list[Hallazgo]:
     for pedido, texto in _PEDIDOS_PROHIBIDOS.items():
         if pedido in mensaje.te_piden:
             hallazgos.append(Hallazgo("Lo que le piden", EN_CONTRA, REGLA, f"Le piden {texto}",
-                                      "Ningún banco, Yape ni entidad del Estado le pide esto por mensaje o llamada. "
-                                      "Con eso pueden vaciar su cuenta.", "Regla de los bancos y la SBS"))
+                                      "Ningún banco, Yape, WhatsApp ni entidad del Estado le pide esto por mensaje "
+                                      "o llamada, ni un amigo debería. Con eso pueden vaciar su cuenta o robarle "
+                                      "su WhatsApp.", "Regla de los bancos, la SBS y WhatsApp"))
     if Pedido.pago_o_deposito in mensaje.te_piden and mensaje.tipo in _PAGO_ADELANTADO:
         que = _PAGO_ADELANTADO[mensaje.tipo]
         hallazgos.append(Hallazgo("Lo que le piden", EN_CONTRA, REGLA, f"Le cobran por adelantado por {que}",
@@ -341,6 +342,8 @@ _SENALES = {
     TipoSenal.oferta_demasiado_buena: "Una oferta demasiado buena",
     TipoSenal.pide_secreto: "Le piden que no le cuente a nadie",
     TipoSenal.escribe_desde_numero_personal: "Una empresa que escribe desde un número personal",
+    TipoSenal.ganar_dinero_por_tareas: "Le ofrecen pagarle por dar «me gusta», reseñas o hacer tareas",
+    TipoSenal.devolver_pago_por_error: "Le piden devolver un dinero que le «enviaron por error»",
 }
 
 
@@ -426,10 +429,17 @@ def pasos(mensaje: Mensaje, veredicto: Veredicto, conocida: Entidad | None) -> l
         lista.append("Entre usted mismo a gob.pe para ver si tiene algún trámite pendiente.")
     if mensaje.tipo in (Tipo.prestamo, Tipo.inversion):
         lista.append("Busque la empresa en la web de la SBS antes de pagar nada.")
-    if mensaje.tipo == Tipo.trabajo:
-        lista.append("Un trabajo serio no le cobra por inscripción, capacitación ni uniforme.")
+    senales = {s.tipo for s in mensaje.senales}
+    if TipoSenal.devolver_pago_por_error in senales:
+        lista.append("No devuelva dinero a quien se lo pide. Si de verdad le llegó, llame a su banco: "
+                     "puede venir de una cuenta robada.")
+    if Pedido.codigo_por_sms in mensaje.te_piden:
+        lista.append("No pase ningún código, ni a un amigo. Active la verificación en dos pasos de WhatsApp.")
+    if mensaje.tipo == Tipo.trabajo or TipoSenal.ganar_dinero_por_tareas in senales:
+        lista.append("Un trabajo serio no le cobra por inscripción ni le paga por dar «me gusta». Bloquee el número.")
     if mensaje.tipo == Tipo.comprobante_de_pago:
-        lista.append("Revise en su propia app si de verdad le llegó el dinero.")
+        lista.append("No entregue nada hasta ver el dinero en SU propia app de Yape o del banco: "
+                     "una captura de pago no prueba nada.")
     lista = lista[:3]
     lista.append("Si ya pagó o dio datos: llame de inmediato a su banco para bloquear y denuncie en la comisaría.")
     return lista

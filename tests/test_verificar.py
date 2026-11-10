@@ -103,3 +103,44 @@ def test_telefono_extranjero_y_numero_tapado():
     r = v.analizar(mensaje(telefonos=["+62 812 3456 7890", "9XX XXX XXX"]), ENTIDADES)
     assert titulos(r) == ["El número +62 812 3456 7890 es del extranjero"]
     assert len([n for n in r.no_comprobables if n.campo == "Teléfono"]) == 1
+
+
+def test_codigo_de_whatsapp_por_error_es_estafa():
+    m = mensaje(tipo=Tipo.otro, te_piden=[Pedido.codigo_por_sms],
+                senales=[Senal(tipo=TipoSenal.urgencia_o_amenaza, cita="Es urgente")])
+    r = v.analizar(m, ENTIDADES)
+    assert r.veredicto.nivel == v.ROJO
+    assert r.veredicto.razon == "Le piden el código que le llegó por SMS"
+    assert any("verificación en dos pasos" in p for p in r.pasos)
+
+
+def test_trabajo_por_tareas_desde_el_extranjero():
+    tareas = Senal(tipo=TipoSenal.ganar_dinero_por_tareas, cita="Te pagamos S/ 10 por cada tarea")
+    sin_deposito = mensaje(tipo=Tipo.trabajo, telefonos=["+84 58 853 2741"], senales=[tareas])
+    r = v.analizar(sin_deposito, ENTIDADES)
+    assert r.veredicto.nivel == v.NARANJA
+    assert "Le ofrecen pagarle por dar «me gusta», reseñas o hacer tareas" in titulos(r)
+    con_deposito = mensaje(tipo=Tipo.trabajo, te_piden=[Pedido.pago_o_deposito], senales=[tareas])
+    assert v.analizar(con_deposito, ENTIDADES).veredicto.razon == "Le cobran por adelantado por un trabajo"
+
+
+def test_le_yapearon_por_error():
+    m = mensaje(te_piden=[Pedido.pago_o_deposito], cuentas_o_numeros_de_pago=["9XX XXX XXX"],
+                senales=[Senal(tipo=TipoSenal.devolver_pago_por_error, cita="le acabo de yapear S/ 250 por error")])
+    r = v.analizar(m, ENTIDADES)
+    assert r.veredicto.nivel == v.NARANJA
+    assert any(p.startswith("No devuelva dinero") for p in r.pasos)
+
+
+def test_voucher_de_yape_nunca_se_da_por_bueno():
+    r = v.analizar(mensaje(tipo=Tipo.comprobante_de_pago, monto="S/ 100"), ENTIDADES)
+    assert r.veredicto.nivel == v.AMARILLO
+    assert any(n.campo == "Comprobante" for n in r.no_comprobables)
+    assert any("SU propia app" in p for p in r.pasos)
+
+
+def test_link_que_imita_a_whatsapp():
+    r = v.analizar(mensaje(links=["https://whatsapp-premios.xyz/aniversario"]), ENTIDADES, edad=sin_red(None))
+    assert titulos(r) == ["El link imita a WhatsApp"]
+    oficial = v.analizar(mensaje(links=["https://wa.me/51999999999"]), ENTIDADES, edad=sin_red(1))
+    assert oficial.hallazgos == []

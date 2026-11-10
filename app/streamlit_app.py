@@ -41,6 +41,17 @@ EJEMPLOS = {
     "Paquete retenido (Serpost)": (
         "SERPOST: Su paquete N° PE2611093 está retenido por falta de pago de la tasa aduanera (S/ 8.90). "
         "Pague antes de 24 horas en serpost-pe.top/pagar o será devuelto al remitente."),
+    "WhatsApp: «te envié un código por error»": (
+        "Holaa! Disculpa, te envié un código de 6 dígitos a tu número por error 😅 ¿me lo puedes pasar porfa? "
+        "Es urgente, es para entrar a mi WhatsApp."),
+    "WhatsApp: trabajo por dar «me gusta»": (
+        "Hola, soy Andrea de una agencia de marketing digital. Tenemos un trabajo a tiempo parcial desde casa: "
+        "gana de S/ 150 a S/ 500 al día dando «me gusta» a videos de YouTube. Te pagamos S/ 10 por cada tarea. "
+        "Para pasar a las tareas VIP debes hacer un depósito de S/ 80, que se te devuelve con tu comisión. "
+        "Escríbeme a +62 8XX XXXX XXXX"),
+    "Yape: «le yapeé por error»": (
+        "Hola señora, disculpe la molestia, le acabo de yapear S/ 250 por error, era para mi mamá 🙏 "
+        "¿Me lo puede devolver a este número 9XX XXX XXX? Le mando la captura del yapeo. Gracias, Dios le bendiga."),
 }
 
 ICONO = {verificar.ROJO: "🔴", verificar.NARANJA: "🟠", verificar.AMARILLO: "🟡"}
