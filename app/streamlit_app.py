@@ -168,14 +168,24 @@ def volver_arriba() -> None:
 def pantalla_entrada() -> None:
     bloque(f"""
         <div class="hero">
-          <div class="marca">{ESCUDO}<span>Pillao</span></div>
-          <div class="hero-titulo">¿Le llegó un mensaje raro?<br><em>Revíselo antes de responder.</em></div>
-          <p class="hero-texto">Suba la captura del WhatsApp o del SMS. En segundos le decimos si es estafa,
-            con la prueba concreta, y qué no se puede comprobar.</p>
-          <div class="chips"><span class="chip">Respuesta en segundos</span>
-            <span class="chip">No guardamos su mensaje</span>
-            <span class="chip">Nunca le diremos «es seguro»</span></div>
-          <div class="marca-agua">{ESCUDO}</div>
+          <div>
+            <div class="marca">{ESCUDO}<span>Pillao</span><span class="etiqueta">Demo pública</span></div>
+            <div class="hero-titulo">¿Le llegó un mensaje raro?<br><em>Revíselo antes de responder.</em></div>
+            <p class="hero-texto">Suba la captura del WhatsApp o del SMS. En segundos le decimos si es estafa,
+              con la prueba concreta, y qué no se puede comprobar.</p>
+            <div class="chips"><span class="chip">Respuesta en segundos</span>
+              <span class="chip">No guardamos su mensaje</span>
+              <span class="chip">Nunca le diremos «es seguro»</span></div>
+          </div>
+          <div class="maqueta" aria-hidden="true">
+            <div class="tel"><div class="pantalla">
+              <div class="tel-barra"></div>
+              <div class="sms-de">+51 9•• ••• •••</div>
+              <div class="sms">Su cuenta será bloqueada hoy. Valide sus datos aquí: <u>banco-validacion.com</u></div>
+            </div></div>
+            <div class="sello"><span class="sello-punto"></span>
+              <div><b>Es una estafa</b><small>El link no es del banco</small></div></div>
+          </div>
         </div>""")
 
     with st.container(border=True, key="entrada"):
@@ -233,7 +243,10 @@ def pantalla_entrada() -> None:
             <div class="t">La IA lee el mensaje y nuestras reglas revisan cada link, RUC y pedido.</div></div></div>
           <div class="paso"><span class="n">3</span><div><b>Le decimos qué hacer</b>
             <div class="t">Con la prueba concreta y lo que nadie puede comprobar.</div></div></div>
-        </div>""")
+        </div>
+        <div class="fuentes">Comprobamos contra fuentes públicas:
+          <span class="f">Dominios oficiales</span><span class="f">RDAP en vivo</span>
+          <span class="f">Registro de la SBS</span><span class="f">Dígito verificador del RUC</span></div>""")
 
 
 # --- Pantalla 2: resultado en carrusel ---------------------------------------------------------

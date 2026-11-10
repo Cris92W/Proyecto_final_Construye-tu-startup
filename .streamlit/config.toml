@@ -1,15 +1,15 @@
-# Tema claro fijo, con letra grande: el público son personas mayores.
-# Atkinson Hyperlegible fue diseñada para personas con baja visión; Fraunces, para los títulos.
+# Tema claro para los controles (van dentro de tarjetas blancas); el fondo azul noche está en app/estilos.css.
+# Atkinson Hyperlegible fue diseñada para personas con baja visión; Plus Jakarta Sans, para los títulos.
 [theme]
 base = "light"
-primaryColor = "#0E5E6F"
-backgroundColor = "#F6F4EF"
-secondaryBackgroundColor = "#EDE8DE"
-textColor = "#14212B"
-linkColor = "#0E5E6F"
-borderColor = "#E3DDD1"
+primaryColor = "#0B7285"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#EEF3F7"
+textColor = "#0F1D2B"
+linkColor = "#0B7285"
+borderColor = "#E3E8EE"
 font = "Atkinson Hyperlegible:https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap, sans-serif"
-headingFont = "Fraunces:https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&display=swap, serif"
+headingFont = "Plus Jakarta Sans:https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap, sans-serif"
 baseFontSize = 17
 baseRadius = "12px"
 
