@@ -196,7 +196,8 @@ def pantalla_entrada() -> None:
                          ["📷 Subir una captura", "✍️ Pegar el texto", "🧪 Ver un ejemplo"], horizontal=True)
         imagen, tipo_imagen, texto = None, "image/png", ""
         if forma.startswith("📷"):
-            archivo = st.file_uploader("Captura de pantalla del mensaje", type=["png", "jpg", "jpeg", "webp"])
+            archivo = st.file_uploader("Captura de pantalla del mensaje", type=["png", "jpg", "jpeg", "webp"],
+                                       label_visibility="collapsed")
             if archivo is not None:
                 imagen, tipo_imagen = archivo.getvalue(), archivo.type or "image/png"
                 st.image(imagen, width=300)
