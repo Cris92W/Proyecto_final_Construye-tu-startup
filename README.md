@@ -14,7 +14,7 @@ Protegemos a las personas mayores de las estafas por WhatsApp y SMS mediante IA 
 
 <img src="docs/founder.jpg" width="120" align="left" alt="Foto del founder">
 
-**Cristian Moisés Wong Pagan.** Politólogo egresado de la UNMSM (primer puesto de su promoción) y bachiller en Ingeniería Geográfica. ✏️ *Una línea sobre por qué tú: p. ej., «A mi mamá le llegó un "hijo con número nuevo" pidiendo S/ 500 y me llamó a preguntar. Pillao es esa llamada, disponible a cualquier hora».*
+**Cristian Moisés Wong Pagan.** Politólogo de la UNMSM (primer puesto de su promoción) y bachiller en Ingeniería Geográfica, con formación en gobernabilidad e innovación pública (PUCP-CAF) y en ciencia de datos. **Por qué yo:** a mis padres les llegan estos mensajes cada semana y yo soy quien les responde. Desde la gestión pública sé que el problema se puede frenar con datos que ya existen; Pillao los pone al alcance de cualquiera, en segundos.
 
 Cómo cubro cada rol con agentes de IA:
 
