@@ -2,7 +2,7 @@
 
 > **Las personas mayores nos mandan la captura de un mensaje sospechoso y en segundos les decimos si es estafa, con la prueba concreta, y qué no se puede comprobar y cómo hacerlo ellas mismas.**
 
-**Demo:** [pillao.streamlit.app](https://pillao.streamlit.app) · **Video de respaldo:** ✏️ (pendiente) · Proyecto final de la Diplomatura de Ciencia de Datos para las Ciencias Sociales y la Gestión Pública (Q-Lab PUCP, 2026).
+**Demo:** [pillao.streamlit.app](https://pillao.streamlit.app) · **Video de respaldo (1:23):** [docs/demo.mp4](docs/demo.mp4) · Proyecto final de la Diplomatura de Ciencia de Datos para las Ciencias Sociales y la Gestión Pública (Q-Lab PUCP, 2026).
 
 ---
 
@@ -72,7 +72,15 @@ uv run streamlit run app/streamlit_app.py
 uv run pytest                 # pruebas sin red ni LLM
 ```
 
-**Capturas del flujo principal:** ✏️ `docs/capturas/1_captura.png`, `2_veredicto.png`, `3_no_comprobable.png`.
+**Capturas del flujo principal** (app publicada, en el celular, con un SMS real que publicó la prensa y el número tapado):
+
+| 1. Suba la captura | 2. El veredicto, con la prueba | 3. Lo que no se puede comprobar |
+|:---:|:---:|:---:|
+| <img src="docs/capturas/1_captura.png" width="250" alt="Pantalla para subir la captura, con el SMS ya cargado"> | <img src="docs/capturas/2_veredicto.png" width="250" alt="Veredicto: es una estafa, el link no es del BCP"> | <img src="docs/capturas/3_no_comprobable.png" width="250" alt="Lo que no podemos comprobar y cómo hacerlo usted"> |
+
+El resultado es un carrusel de cinco pantallas (veredicto, qué hacer, pruebas, lo que no se puede comprobar y cómo decidimos): se avanza con los botones, deslizando con el dedo o con las flechas del teclado.
+
+**Video de respaldo:** [docs/demo.mp4](docs/demo.mp4) (1:23, sin audio y con subtítulos). Dos casos reales de principio a fin en la app publicada: un SMS falso del «bono Yanapay» (🔴 es una estafa) y un voucher falso de Yape (🟡 no se puede comprobar, y cómo hacerlo uno mismo).
 
 **Arquitectura:**
 
@@ -131,8 +139,8 @@ Por qué estas: sin Document AI la persona mayor tendría que copiar el texto a 
 
 Este repo se construyó con **Claude Code** (modelo Claude Opus 5.5) como co-founder técnico:
 
-- **El agente:** propuso la idea entre varias, comprobó qué fuentes de datos responden de verdad (RDAP sí; la web de la SBS bloquea consultas automáticas; NIC.pe no tiene RDAP), escribió las reglas de verificación, el esquema, el prompt, la app, las pruebas y el borrador de este README.
-- **El founder:** eligió el problema y el público (personas mayores), pidió separar lo que se puede comprobar de lo que no, hizo las entrevistas, aportó capturas reales y ✏️ *(completar)*.
+- **El agente:** propuso la idea entre varias, comprobó qué fuentes de datos responden de verdad (RDAP sí; la web de la SBS bloquea consultas automáticas; NIC.pe no tiene RDAP), escribió las reglas de verificación, el esquema, el prompt, la app, las pruebas y el borrador de este README. También rediseñó la interfaz y **grabó el video de respaldo**: manejó Chrome en tamaño de celular sobre la app publicada (subió las capturas, pulsó y deslizó como una persona) y montó los subtítulos con Pillow y ffmpeg. Los veredictos del video son los que dio la app en vivo.
+- **El founder:** eligió el problema y el público (personas mayores), pidió separar lo que se puede comprobar de lo que no, hizo las entrevistas, aportó capturas reales, pidió el carrusel de una pantalla por paso, el fondo en degradado, resaltar dónde se sube la captura y aclarar que es solo para el Perú, y aprobó el guion del video.
 
 ## Estructura
 
