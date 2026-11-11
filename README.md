@@ -2,7 +2,7 @@
 
 > **Las personas mayores nos mandan la captura de un mensaje sospechoso y en segundos les decimos si es estafa, con la prueba concreta, y qué no se puede comprobar y cómo hacerlo ellas mismas.**
 
-**Demo:** [pillao.streamlit.app](https://pillao.streamlit.app) · **Video de respaldo (1:23):** [docs/demo.mp4](docs/demo.mp4) · Proyecto final de la Diplomatura de Ciencia de Datos para las Ciencias Sociales y la Gestión Pública (Q-Lab PUCP, 2026).
+**Demo:** [pillao.streamlit.app](https://pillao.streamlit.app) · **Video de respaldo (1:30):** [docs/demo.mp4](docs/demo.mp4) · Proyecto final de la Diplomatura de Ciencia de Datos para las Ciencias Sociales y la Gestión Pública (Q-Lab PUCP, 2026).
 
 ---
 
@@ -80,7 +80,7 @@ uv run pytest                 # pruebas sin red ni LLM
 
 El resultado es un carrusel de cinco pantallas (veredicto, qué hacer, pruebas, lo que no se puede comprobar y cómo decidimos): se avanza con los botones, deslizando con el dedo o con las flechas del teclado.
 
-**Video de respaldo:** [docs/demo.mp4](docs/demo.mp4) (1:23, sin audio y con subtítulos). Dos casos reales de principio a fin en la app publicada: un SMS falso del «bono Yanapay» (🔴 es una estafa) y un voucher falso de Yape (🟡 no se puede comprobar, y cómo hacerlo uno mismo).
+**Video de respaldo:** [docs/demo.mp4](docs/demo.mp4) (1:30, con subtítulos). Lo narra mi voz clonada con **Qwen3-TTS** (modelo abierto, como en la sesión 15) a partir de una muestra de 17 segundos de mi voz, con música de fondo original. Dos casos reales de principio a fin en la app publicada: un SMS falso del «bono Yanapay» (🔴 es una estafa) y un voucher falso de Yape (🟡 no se puede comprobar, y cómo hacerlo uno mismo).
 
 **Arquitectura:**
 
@@ -139,7 +139,7 @@ Por qué estas: sin Document AI la persona mayor tendría que copiar el texto a 
 
 Este repo se construyó con **Claude Code** (modelo Claude Opus 5.5) como co-founder técnico:
 
-- **El agente:** propuso la idea entre varias, comprobó qué fuentes de datos responden de verdad (RDAP sí; la web de la SBS bloquea consultas automáticas; NIC.pe no tiene RDAP), escribió las reglas de verificación, el esquema, el prompt, la app, las pruebas y el borrador de este README. También rediseñó la interfaz y **grabó el video de respaldo**: manejó Chrome en tamaño de celular sobre la app publicada (subió las capturas, pulsó y deslizó como una persona) y montó los subtítulos con Pillow y ffmpeg. Los veredictos del video son los que dio la app en vivo.
+- **El agente:** propuso la idea entre varias, comprobó qué fuentes de datos responden de verdad (RDAP sí; la web de la SBS bloquea consultas automáticas; NIC.pe no tiene RDAP), escribió las reglas de verificación, el esquema, el prompt, la app, las pruebas y el borrador de este README. También rediseñó la interfaz y **grabó el video de respaldo**: manejó Chrome en tamaño de celular sobre la app publicada (subió las capturas, pulsó y deslizó como una persona) y montó los subtítulos con Pillow y ffmpeg. Narró el guion con la voz clonada del founder (Qwen3-TTS en CPU, cada frase revisada con Whisper y generada de nuevo si no se entendía) y compuso la música de fondo con NumPy, así que no tiene derechos de terceros. Los veredictos del video son los que dio la app en vivo.
 - **El founder:** eligió el problema y el público (personas mayores), pidió separar lo que se puede comprobar de lo que no, hizo las entrevistas, aportó capturas reales, pidió el carrusel de una pantalla por paso, el fondo en degradado, resaltar dónde se sube la captura y aclarar que es solo para el Perú, y aprobó el guion del video.
 
 ## Estructura
