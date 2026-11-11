@@ -2,7 +2,7 @@
 
 > **Las personas mayores nos mandan la captura de un mensaje sospechoso y en segundos les decimos si es estafa, con la prueba concreta, y qué no se puede comprobar y cómo hacerlo ellas mismas.**
 
-**Demo:** [pillao.streamlit.app](https://pillao.streamlit.app) · **Video de respaldo (1:30):** [docs/demo.mp4](docs/demo.mp4) · Proyecto final de la Diplomatura de Ciencia de Datos para las Ciencias Sociales y la Gestión Pública (Q-Lab PUCP, 2026).
+**Demo:** [pillao.streamlit.app](https://pillao.streamlit.app) · **Video de respaldo (1:19):** [docs/demo.mp4](docs/demo.mp4) · Proyecto final de la Diplomatura de Ciencia de Datos para las Ciencias Sociales y la Gestión Pública (Q-Lab PUCP, 2026).
 
 ---
 
@@ -80,7 +80,7 @@ uv run pytest                 # pruebas sin red ni LLM
 
 El resultado es un carrusel de cinco pantallas (veredicto, qué hacer, pruebas, lo que no se puede comprobar y cómo decidimos): se avanza con los botones, deslizando con el dedo o con las flechas del teclado.
 
-**Video de respaldo:** [docs/demo.mp4](docs/demo.mp4) (1:30, con subtítulos). Lo narra mi voz clonada con **Qwen3-TTS** (modelo abierto, como en la sesión 15) a partir de una muestra de 17 segundos de mi voz, con música de fondo original. Dos casos reales de principio a fin en la app publicada: un SMS falso del «bono Yanapay» (🔴 es una estafa) y un voucher falso de Yape (🟡 no se puede comprobar, y cómo hacerlo uno mismo).
+**Video de respaldo:** [docs/demo.mp4](docs/demo.mp4) (1:19, con subtítulos). Lo narra mi voz clonada con **Qwen3-TTS** (modelo abierto, como en la sesión 15) a partir de una muestra de 17 segundos de mi voz, con música de fondo original. Mientras no hay voz (subir la captura, esperar a Gemini), la pantalla va adelantada ×3 y el video lo indica. Dos casos reales de principio a fin en la app publicada: un SMS falso del «bono Yanapay» (🔴 es una estafa) y un voucher falso de Yape (🟡 no se puede comprobar, y cómo hacerlo uno mismo).
 
 **Arquitectura:**
 
