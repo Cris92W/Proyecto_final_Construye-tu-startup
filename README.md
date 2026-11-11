@@ -29,13 +29,16 @@ Cómo cubro cada rol con agentes de IA:
 
 ## 3. Problema
 
-**Quién lo sufre:** personas mayores que usan WhatsApp y Yape, y sus hijos, que reciben la llamada de «¿esto es verdad?». ✏️ *Precisar con las entrevistas (p. ej., «madres y padres de 60 a 75 años de Lima que usan Yape»).*
+**Quién lo sufre:** madres y padres de 65 a 75 años de Lima que reciben de 3 a 6 mensajes o llamadas sospechosas al mes por SMS, WhatsApp o teléfono. Usen o no Yape, les llegan igual. Y sus hijos adultos, que terminan de «verificadores» de la familia.
 
-**Qué les cuesta:** ✏️ *de las entrevistas: cuánto perdieron, cuántas veces al mes preguntan a sus hijos, cuánto tardan en resolver la duda.*
+**Qué les cuesta:**
+- **A la persona mayor:** de 10 a 20 minutos de incertidumbre y susto por cada mensaje dudoso, hasta que consigue a alguien que lo revise.
+- **Al hijo:** 5 o 6 interrupciones al mes en el trabajo y la «carga mental» de vigilar.
+- **Cuando caen:** dinero. En el entorno de los entrevistados hubo pérdidas de **S/ 500** (enlace de un falso bono del Estado) y **S/ 1,200** (voucher de depósito falso), según lo que les contaron.
 
-**Cómo lo resuelven hoy:** llaman a un hijo o nieto (si contesta), preguntan en el grupo de la familia, o deciden solos y con prisa, que es justo lo que busca el estafador. ✏️ *Confirmar con las entrevistas.*
+**Cómo lo resuelven hoy:** le preguntan a un hijo, que fue lo que hicieron las tres personas entrevistadas. Le llevan el celular, le mandan un pantallazo por WhatsApp, o cortan la llamada y lo llaman a su número. Si el hijo no contesta, esperan con la duda o deciden solos y con prisa, que es justo lo que busca el estafador. Los trucos que usan («desconfío de los números raros», «el tono de voz») fallan cuando «las letras y los logos se ven tan iguales».
 
-**Evidencia:** notas de 3 conversaciones en [`docs/research/`](docs/research/). ✏️
+**Evidencia:** notas de 3 conversaciones del 10 de noviembre en [`docs/research/`](docs/research/): una mujer de 68 años que usa Yape, un hombre de 72 que no usa pagos digitales y un hijo de 35 cuyos padres le consultan 5 o 6 veces al mes. El hijo pagaría el plan Familia: *«Pucha, recontra pagaría. S/ 9 al mes es baratísimo con la tranquilidad de saber que mis viejos no van a caer en una estafa»*. Son tres personas de Lima del entorno del founder: sirven para entender el problema, pero no son una muestra representativa.
 
 ## 4. Solución e insight
 
